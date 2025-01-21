@@ -1,0 +1,28 @@
+Iteracja 1 - 20.12.2024
+
+co zrobiłem:
+	-manualne wyznaczenie osi głowy kości udowej
+
+problemy:
+	-czasochłonne
+	-mało dokładne
+
+Iteracja 2 - 10.01.2025
+
+co zrobiłem:
+	-stworzenie makra do NX do wyznaczania osi
+	-wyznaczanie osi głównej całej kości na podstawie najmniejszej powierzchni przekroju
+
+
+problemy:
+	-jak zdefiniować wektor w stronę głowy kości udowej
+	-problemy wewnętrzne API NX (metoda pomiaru pola powierzchni)
+
+Iteracja 3 - 16.01.2025 - w trakcie
+
+co zrobiłem:
+	-używanie tylko części kości (głowa kości udowej plus mała część pionu)
+
+
+
+problemy:
