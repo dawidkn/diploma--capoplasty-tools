@@ -15,14 +15,14 @@ import NXOpen.Display
 
 def create_rotation_matrix(axis, angle_deg):
     """
-    Tworzy macierz rotacji wokół wybranej osi.
+    create rotation mat around axis
     
     Args:
         axis (str): Oś obrotu ('X', 'Y', 'Z').
-        angle_deg (float): Kąt w stopniach.
+        angle_deg (float): 
     
     Returns:
-        NXOpen.Matrix3x3: Macierz rotacji.
+        NXOpen.Matrix3x3: 
     """
     angle_rad = math.radians(angle_deg)
     cos_theta = math.cos(angle_rad)
@@ -48,17 +48,14 @@ def create_rotation_matrix(axis, angle_deg):
     return rotation_matrix
 
 def create_sections():
-    """
-    Tworzy przekroje dla każdej płaszczyzny (XY, YZ, ZX) i obraca je iteracyjnie
-    wokół każdej osi (X, Y, Z) co 5 stopni od 0 do 30.
-    """
+
     theSession = NXOpen.Session.GetSession()
     workPart = theSession.Parts.Work
 
     axisorigin = NXOpen.Point3d(0.0, 0.0, 0.0)
     origin = NXOpen.Point3d(0.0, 0.0, 0.0)
 
-    # Definicje początkowych orientacji dla każdej płaszczyzny
+    # define initial plane x y z
     plane_orientations = {
         "XY": NXOpen.Matrix3x3(
             Xx=1.0, Xy=0.0, Xz=0.0,
@@ -79,30 +76,24 @@ def create_sections():
     area = []
     
 
-    # Tworzenie przekrojów
+    # create sec
     for plane, base_matrix in plane_orientations.items():
         for rotation_axis in ['X', 'Y', 'Z']:
             for angle in range(0, 30, 10):
-                # Generowanie macierzy rotacji dla obrotu
+                
                 rotation_matrix = create_rotation_matrix(rotation_axis, angle)
 
-                # Połączenie macierzy bazowej z obrotem
-                # W tej prostszej implementacji używamy tylko rotacji wokół jednej osi na raz
+
                 final_matrix = rotation_matrix
 
-                # Tworzenie dynamicznego przekroju
                 dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)
                 dynamicSectionBuilder.ShowClip = True
 
-                # Ustawienie płaszczyzny przekroju
                 dynamicSectionBuilder.SetPlane(axisorigin, origin, final_matrix)
 
-                # Zatwierdzenie przekroju
                 section = dynamicSectionBuilder.Commit()
                 area.append([MA.main(),angle,rotation_axis,plane])
 
-
-                # Zwolnienie zasobów
                 dynamicSectionBuilder.Destroy()
     log("correction area", area)
     min_index, min_value = min(enumerate(area), key=lambda x: x[1][0])
@@ -116,12 +107,11 @@ def create_sections():
     dynamicSectionBuilder.ShowClip = True
     dynamicSectionBuilder.SetPlane(axisorigin, origin, final_matrix)
 
-    # Zatwierdzenie przekroju
+
     section = dynamicSectionBuilder.Commit()
     log("after-close",MA.main())
 
-    # Ustawienie płaszczyzny przekroju
     dynamicSectionBuilder.SetPlane(axisorigin, origin, final_matrix)
 
-# Uruchomienie funkcji
+
 create_sections()
