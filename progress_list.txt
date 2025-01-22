@@ -22,7 +22,9 @@ Iteracja 3 - 16.01.2025 - w trakcie
 
 co zrobiłem:
 	-używanie tylko części kości (głowa kości udowej plus mała część pionu)
+	-macierz rotacji, nie bezpośrednie przedstawienie. Działa używanie funkcji z poza API NX (obecnie w fazie testów)
 
 
 
 problemy:
+	-jak NX interpretuje zmiane kąta płaszczyzny (rotationmatrix)

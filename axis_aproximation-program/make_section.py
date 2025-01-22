@@ -1,3 +1,5 @@
+#this file prepare only base sections on x y z
+
 import math
 import NXOpen
 import NXOpen.Display
@@ -14,17 +16,55 @@ def make_sec(workPart) :
 
     sectionArea = [0,0,0]
 
-    dynamicSectionBuilder1.PlaneX() 
+    axisorigin = NXOpen.Point3d(0.0, 0.0, 0.0)
+    origin = NXOpen.Point3d(0.0, 0.0, 0.0)
+    rotationmatrix1 = NXOpen.Matrix3x3()
+    
+    rotationmatrix1.Xx = 0.0
+    rotationmatrix1.Xy = 1.0
+    rotationmatrix1.Xz = 0.0
+    rotationmatrix1.Yx = 0.0
+    rotationmatrix1.Yy = 0.0
+    rotationmatrix1.Yz = 1.0
+    rotationmatrix1.Zx = 1.0
+    rotationmatrix1.Zy = 0.0
+    rotationmatrix1.Zz = 0.0
+    dynamicSectionBuilder1.SetPlane(axisorigin, origin, rotationmatrix1)
+
+    
     nXObject1 = dynamicSectionBuilder1.Commit()
     sectionArea[0] = measure()
 
-    dynamicSectionBuilder1.PlaneY() 
+    
+    rotationmatrix1.Xx = 0.0
+    rotationmatrix1.Xy = 0.0
+    rotationmatrix1.Xz = 1.0
+    rotationmatrix1.Yx = 1.0
+    rotationmatrix1.Yy = 0.0
+    rotationmatrix1.Yz = 0.0
+    rotationmatrix1.Zx = 0.0
+    rotationmatrix1.Zy = 1.0
+    rotationmatrix1.Zz = 0.0
+
+    dynamicSectionBuilder1.SetPlane(axisorigin, origin, rotationmatrix1)
     nXObject1 = dynamicSectionBuilder1.Commit()
     sectionArea[1] = measure()
 
-    dynamicSectionBuilder1.PlaneZ() #to change the plane of section, change z to x or y
+
+    rotationmatrix1.Xx = 0.0
+    rotationmatrix1.Xy = 1.0
+    rotationmatrix1.Xz = 0.0
+    rotationmatrix1.Yx = -1.0
+    rotationmatrix1.Yy = 0.0
+    rotationmatrix1.Yz = 0.0
+    rotationmatrix1.Zx = 0.0
+    rotationmatrix1.Zy = 0.0
+    rotationmatrix1.Zz = 1.0
+
+    dynamicSectionBuilder1.SetPlane(axisorigin, origin, rotationmatrix1)
     nXObject1 = dynamicSectionBuilder1.Commit()
     sectionArea[2] = measure()
+
     
     dynamicSectionBuilder1.ShowClip = False
     log("sections area:", sectionArea)

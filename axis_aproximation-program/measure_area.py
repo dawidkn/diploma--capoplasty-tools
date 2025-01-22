@@ -30,7 +30,19 @@ def create_extrude(workPart):
     extrudeBuilder1.Limits.EndExtend.Value.SetFormula("0")
 
     section1.DistanceTolerance = 0.01
+    lines = workPart.Lines
+    for line in lines:
+        lineObj = []
+        lineObj.append(line)
+        selectionIntentRuleOptions = workPart.ScRuleFactory.CreateRuleOptions()
 
+        selectionIntentRuleOptions.SetSelectedFromInactive(False)
+        curveDumbRule = workPart.ScRuleFactory.CreateRuleBaseCurveDumb(lineObj, selectionIntentRuleOptions)
+        rules = [None] * 1 
+        rules[0] = curveDumbRule
+        helpPoint = NXOpen.Point3d(0.0, 0.0, 0.0)
+
+        section1.AddToSection(rules, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint, NXOpen.Section.Mode.Create, False)
 
     splines = workPart.Splines
     
@@ -99,9 +111,19 @@ def reamove_extrude_and_splines(theSession,workPart):
     id1 = theSession.NewestVisibleUndoMark
     nErrs2 = theSession.UpdateManager.DoUpdate(id1)
 
-    #---reamove splines
+    #---reamove splines and lines
     splines = workPart.Splines
     splObj = []
+
+    lines = workPart.Lines
+    lineObj = []
+    for line in lines:
+        lineObj.append(line)
+
+    nErrs1 = theSession.UpdateManager.AddObjectsToDeleteList(lineObj)
+    id1 = theSession.NewestVisibleUndoMark
+    nErrs2 = theSession.UpdateManager.DoUpdate(id1)
+
     for spline in splines:
         splObj.append(spline)
 

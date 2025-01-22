@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 def log(name, val1):
-    file_path = r"C:\Users\dawid\Desktop\praca magisterska\makra\logs_and_save\logs.csv"
+    file_path = r"C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\logs_and_save\logs.csv"
 
     
     next_index = 0
