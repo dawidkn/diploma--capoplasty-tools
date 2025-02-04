@@ -1,5 +1,5 @@
 ﻿# NX 2011
-# Journal created by dawid on Tue Jan 21 23:42:49 2025 Środkowoeuropejski czas stand.
+# Journal created by dawid on Thu Jan 23 00:22:14 2025 Środkowoeuropejski czas stand.
 
 #
 import math
@@ -30,7 +30,7 @@ def main() :
     
     dynamicSectionBuilder1.SeriesSpacing = 3.0
     
-    dynamicSectionBuilder1.DefaultPlaneAxis = NXOpen.Display.DynamicSectionTypes.Axis.Z
+    dynamicSectionBuilder1.DefaultPlaneAxis = NXOpen.Display.DynamicSectionTypes.Axis.Y
     
     theSession.SetUndoMarkName(markId1, "View Section Dialog")
     
@@ -38,111 +38,30 @@ def main() :
     
     dynamicSectionBuilder1.ShowClip = True
     
-    dynamicSectionBuilder1.CsysType = NXOpen.Display.DynamicSectionTypes.CoordinateSystem.Wcs
+    dynamicSectionBuilder1.CsysType = NXOpen.Display.DynamicSectionTypes.CoordinateSystem.Absolute
     
-    dynamicSectionBuilder1.DefaultPlaneAxis = NXOpen.Display.DynamicSectionTypes.Axis.Z
+    dynamicSectionBuilder1.DefaultPlaneAxis = NXOpen.Display.DynamicSectionTypes.Axis.Y
     
-    mincornerpt1 = NXOpen.Point3d(-46.602688414586432, -44.016079119072721, -65.546137218145446)
-    maxcornerpt1 = NXOpen.Point3d(70.750402952048987, 50.138897959776905, 55.447465535290192)
+    mincornerpt1 = NXOpen.Point3d(-60.255600193708496, -44.016079119072714, -32.377705747405351)
+    maxcornerpt1 = NXOpen.Point3d(84.90093628673371, 50.138897959776926, 38.16860111486556)
     dynamicSectionBuilder1.SetBoundingBox(mincornerpt1, maxcornerpt1)
     
     dynamicSectionBuilder1.DeferCurveUpdate = False
     
     dynamicSectionBuilder1.ShowCurvePreview(True)
     
-    geom1 = []
-    plane1.SetGeometry(geom1)
-    
-    plane1.SetMethod(NXOpen.PlaneTypes.MethodType.FixedY)
-    
-    geom2 = []
-    plane1.SetGeometry(geom2)
-    
-    origin2 = NXOpen.Point3d(0.0, 0.0, 0.0)
-    plane1.Origin = origin2
-    
-    matrix1 = NXOpen.Matrix3x3()
-    
-    matrix1.Xx = 0.0
-    matrix1.Xy = 0.0
-    matrix1.Xz = 1.0
-    matrix1.Yx = 1.0
-    matrix1.Yy = 0.0
-    matrix1.Yz = 0.0
-    matrix1.Zx = 0.0
-    matrix1.Zy = 1.0
-    matrix1.Zz = 0.0
-    plane1.Matrix = matrix1
-    
-    plane1.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
-    
-    plane1.Evaluate()
-    
-    plane1.SetMethod(NXOpen.PlaneTypes.MethodType.FixedY)
-    
-    dynamicSectionBuilder1.SetAssociativePlane(NXOpen.Plane.Null)
-    
-    axisorigin1 = NXOpen.Point3d(0.0, 0.0, 0.0)
-    origin3 = NXOpen.Point3d(0.0, 0.0, 0.0)
     rotationmatrix1 = NXOpen.Matrix3x3()
     
     rotationmatrix1.Xx = 0.0
-    rotationmatrix1.Xy = 0.0
-    rotationmatrix1.Xz = -1.0
-    rotationmatrix1.Yx = -1.0
+    rotationmatrix1.Xy = -1.0
+    rotationmatrix1.Xz = 0.0
+    rotationmatrix1.Yx = 0.99619469809174555
     rotationmatrix1.Yy = 0.0
-    rotationmatrix1.Yz = 0.0
-    rotationmatrix1.Zx = 0.0
-    rotationmatrix1.Zy = 1.0
-    rotationmatrix1.Zz = 0.0
-    dynamicSectionBuilder1.SetPlane(axisorigin1, origin3, rotationmatrix1)
-    
-    geom3 = []
-    plane1.SetGeometry(geom3)
-    
-    plane1.SetMethod(NXOpen.PlaneTypes.MethodType.FixedZ)
-    
-    geom4 = []
-    plane1.SetGeometry(geom4)
-    
-    origin4 = NXOpen.Point3d(0.0, 0.0, 0.0)
-    plane1.Origin = origin4
-    
-    matrix2 = NXOpen.Matrix3x3()
-    
-    matrix2.Xx = 1.0
-    matrix2.Xy = 0.0
-    matrix2.Xz = 0.0
-    matrix2.Yx = 0.0
-    matrix2.Yy = 1.0
-    matrix2.Yz = 0.0
-    matrix2.Zx = 0.0
-    matrix2.Zy = 0.0
-    matrix2.Zz = 1.0
-    plane1.Matrix = matrix2
-    
-    plane1.SetAlternate(NXOpen.PlaneTypes.AlternateType.One)
-    
-    plane1.Evaluate()
-    
-    plane1.SetMethod(NXOpen.PlaneTypes.MethodType.FixedZ)
-    
-    dynamicSectionBuilder1.SetAssociativePlane(NXOpen.Plane.Null)
-    
-    axisorigin2 = NXOpen.Point3d(0.0, 0.0, 0.0)
-    origin5 = NXOpen.Point3d(0.0, 0.0, 0.0)
-    rotationmatrix2 = NXOpen.Matrix3x3()
-    
-    rotationmatrix2.Xx = 0.0
-    rotationmatrix2.Xy = 1.0
-    rotationmatrix2.Xz = -0.0
-    rotationmatrix2.Yx = -1.0
-    rotationmatrix2.Yy = 0.0
-    rotationmatrix2.Yz = 0.0
-    rotationmatrix2.Zx = 0.0
-    rotationmatrix2.Zy = 0.0
-    rotationmatrix2.Zz = 1.0
-    dynamicSectionBuilder1.SetPlane(axisorigin2, origin5, rotationmatrix2)
+    rotationmatrix1.Yz = 0.087155742747658096
+    rotationmatrix1.Zx = -0.087155742747658096
+    rotationmatrix1.Zy = 0.0
+    rotationmatrix1.Zz = 0.99619469809174555
+    dynamicSectionBuilder1.SetRotationMatrix(NXOpen.Display.DynamicSectionTypes.Axis.NotSet, rotationmatrix1)
     
     markId2 = theSession.SetUndoMark(NXOpen.Session.MarkVisibility.Invisible, "View Section")
     
