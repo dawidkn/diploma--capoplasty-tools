@@ -18,7 +18,7 @@ problemy:
 	-jak zdefiniować wektor w stronę głowy kości udowej
 	-problemy wewnętrzne API NX (metoda pomiaru pola powierzchni)
 
-Iteracja 3 - 16.01.2025 - w trakcie
+Iteracja 3 - 16.01.2025 
 
 co zrobiłem:
 	-używanie tylko części kości (głowa kości udowej plus mała część pionu)
@@ -28,3 +28,18 @@ co zrobiłem:
 
 problemy:
 	-jak NX interpretuje zmiane kąta płaszczyzny (rotationmatrix)
+	-problemy ze zmianą podstawowej płaszczyzny xy na np. zx (rozwiązane przez mnożenie macierzy rotacji z podstawową macierzą)
+
+
+Iteracja 4 - 24.02.2025 - w trakcie
+
+co zrobiłem:
+	-tworzenie koreckji przekroju (correction_section.py) czyli zrobienie sekcji po podstawowych plaszczyznach, potem znalezienie najmniejszego przekroju i korekcja na najmnieszym przekroju
+	-wyznaczanie wektora normalnego do płaszczyzny
+
+
+
+problemy:
+	-jak NX interpretuje zmiane kąta płaszczyzny (rotationmatrix)
+	-wyznaczanie wektora normalnego do plaszczyzny najmniejszego przekroju
+

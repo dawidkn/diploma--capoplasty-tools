@@ -142,9 +142,6 @@ def main() :
     create_extrude(workPart)
     area = measureSurface(theSession,workPart)
     reamove_extrude_and_splines(theSession,workPart)
-
-
-   
     return area
 
 
