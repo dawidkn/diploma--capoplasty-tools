@@ -37,7 +37,10 @@ co zrobiłem:
 	-tworzenie koreckji przekroju (correction_section.py) czyli zrobienie sekcji po podstawowych plaszczyznach, potem znalezienie najmniejszego przekroju i korekcja na najmnieszym przekroju
 	-wyznaczanie wektora normalnego do płaszczyzny
 
-
+co do zrobienia
+	-korekcja nowych przkrojów w head_axies_aproximation
+	-poprawne wyznaczenie środka
+	-implementacja funkcji testowych z test2 do head_axies_aproximation
 
 problemy:
 	-jak NX interpretuje zmiane kąta płaszczyzny (rotationmatrix)

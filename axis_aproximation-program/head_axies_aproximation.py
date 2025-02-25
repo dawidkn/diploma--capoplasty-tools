@@ -10,7 +10,6 @@ import measure_area as MA
 import NXOpen.Display
 from additonal_functions import msgBox as MB
 
-
 def create_rotation_matrix(axis, angle_deg):
 
     angle_rad = math.radians(angle_deg)
@@ -37,7 +36,6 @@ def create_rotation_matrix(axis, angle_deg):
 
     return rotation_matrix
 
-
 def multiply_matrices(m1: NXOpen.Matrix3x3, m2: NXOpen.Matrix3x3) -> NXOpen.Matrix3x3:
 
     result = NXOpen.Matrix3x3()
@@ -54,7 +52,6 @@ def multiply_matrices(m1: NXOpen.Matrix3x3, m2: NXOpen.Matrix3x3) -> NXOpen.Matr
     result.Zy = m1.Zx*m2.Xy + m1.Zy*m2.Yy + m1.Zz*m2.Zy
     result.Zz = m1.Zx*m2.Xz + m1.Zy*m2.Yz + m1.Zz*m2.Zz
     return result
-
 
 def get_normal_from_matrix(originPoint, mat, axis, distance):
 
@@ -89,9 +86,13 @@ def get_normal_from_matrix(originPoint, mat, axis, distance):
     origin = NXOpen.Point3d(new_x, new_y, new_z)  
     return origin
 
-def correctionSec(rotAxisSel, base_matrix, axisorigin, origin, workPart, angle_range_dwon, angle_range_top, step):
+
+def create_sections(workPart, axisorigin, origin, base_matrix, rotAxisSel, angle_range_dwon, angle_range_top, step): #create cestion with additional rotation
+    # set base matrix
     dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)
     dynamicSectionBuilder.ShowClip = True
+
+    smalest_area = []
     for rotation_axis in rotAxisSel:
         for angle in range(angle_range_dwon, angle_range_top, step):
             # create global matrix
@@ -101,57 +102,11 @@ def correctionSec(rotAxisSel, base_matrix, axisorigin, origin, workPart, angle_r
             # set section plane
             dynamicSectionBuilder.SetPlane(axisorigin, origin, final_matrix)
             dynamicSectionBuilder.Commit()
+            area = MA.main()
+            temp = [area, rotation_axis, angle, angle_range_dwon, angle_range_top, step, final_matrix]
+            smalest_area.append(temp)
 
+    min_list = min(smalest_area, key=lambda x: x[0])
 
-def determinateAxies(workPart,final_matrix,axisorigin,origin, plane):
-    for i in range(0,50,5):
-        dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)    
-        origin = get_normal_from_matrix(origin, final_matrix, plane[1], i)
-        log("newOrigin", origin)
-        dynamicSectionBuilder.SetPlane(axisorigin, origin, final_matrix)
-        dynamicSectionBuilder.Commit()
-        correctionSec(plane, final_matrix, axisorigin, origin, workPart,-5,5,1)
-
-    
-
-
-def create_sections():
-    theSession = NXOpen.Session.GetSession()
-    workPart = theSession.Parts.Work
-    axisorigin = NXOpen.Point3d(0.0, 0.0, 0.0)
-    origin = NXOpen.Point3d(0.0, 0.0, 0.0)    
-    base_matrixZ = NXOpen.Matrix3x3()
-    base_matrixZ.Xx = 0.0
-    base_matrixZ.Xy = 0.0
-    base_matrixZ.Xz = 1.0
-    base_matrixZ.Yx = 1.0
-    base_matrixZ.Yy = 0.0
-    base_matrixZ.Yz = 0.0
-    base_matrixZ.Zx = 0.0
-    base_matrixZ.Zy = 1.0
-    base_matrixZ.Zz = 0.0
-
-
-    dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)
-    dynamicSectionBuilder.ShowClip = True
-
-
-    temp = MB.inputBox("intest Angel")
-    ang = float(temp[0])
-    plane =["X","Y","Z"]
-    # create global matrix
-    rot_matrix = create_rotation_matrix(plane[2], ang)
-    # multiplication of global matrix and rotation matrix
-    final_matrix = multiply_matrices(base_matrixZ, rot_matrix)
-    # set section plane
-    dynamicSectionBuilder.SetPlane(axisorigin, origin, final_matrix)
-    dynamicSectionBuilder.Commit()
-
-
-
-    determinateAxies(workPart,final_matrix,axisorigin,origin,plane)
-
-
-
-create_sections()
-
+    smalest_area.clear()
+    return min_list

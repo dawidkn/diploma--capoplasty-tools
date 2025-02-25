@@ -37,7 +37,6 @@ def create_rotation_matrix(axis, angle_deg):
 
     return rotation_matrix
 
-
 def multiply_matrices(m1: NXOpen.Matrix3x3, m2: NXOpen.Matrix3x3) -> NXOpen.Matrix3x3:
 
     result = NXOpen.Matrix3x3()
@@ -55,12 +54,45 @@ def multiply_matrices(m1: NXOpen.Matrix3x3, m2: NXOpen.Matrix3x3) -> NXOpen.Matr
     result.Zz = m1.Zx*m2.Xz + m1.Zy*m2.Yz + m1.Zz*m2.Zz
     return result
 
-def create_sections(workPart, axisorigin, origin, base_matrix, rotAxisSel, angle_range_dwon, angle_range_top, step):
+def get_normal_from_matrix(originPoint, mat, axis, distance):
+
+    if axis == "X":
+        vx, vy, vz = mat.Xx, mat.Xy, mat.Xz  # Wektor osi X
+    elif axis == "Y":
+        vx, vy, vz = mat.Yx, mat.Yy, mat.Yz  # Wektor osi Y
+    elif axis == "Z":
+        vx, vy, vz = mat.Zx, mat.Zy, mat.Zz  # Wektor osi Z
+    else:
+        raise ValueError("unknown axis. Use 'X', 'Y' or 'Z'.")
+
+    # Normalizacja wektora
+    length = (vx**2 + vy**2 + vz**2) ** 0.5
+    vx /= length
+    vy /= length
+    vz /= length
+
+    # Obliczenie przesunięcia
+    dx = vx * distance
+    dy = vy * distance
+    dz = vz * distance
+
+    x = originPoint.X
+    y = originPoint.Y
+    z = originPoint.Z
+
+    # Nowa pozycja
+    new_x = x + dx
+    new_y = y + dy
+    new_z = z + dz
+    origin = NXOpen.Point3d(new_x, new_y, new_z)  
+    return origin
+
+
+def create_sections(workPart, axisorigin, origin, base_matrix, rotAxisSel, angle_range_dwon, angle_range_top, step): #create cestion with additional rotation
     # set base matrix
     dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)
     dynamicSectionBuilder.ShowClip = True
-    dynamicSectionBuilder.SetPlane(axisorigin, origin, base_matrix)
-    section = dynamicSectionBuilder.Commit()
+
     smalest_area = []
     for rotation_axis in rotAxisSel:
         for angle in range(angle_range_dwon, angle_range_top, step):
@@ -84,30 +116,32 @@ def create_sections(workPart, axisorigin, origin, base_matrix, rotAxisSel, angle
 
 def correction_plane(workPart,min_list,axisorigin,origin):
 
+    planesel = ["X","Y","Z"]
 
     if min_list[2]==min_list[3]:
-        planesel = ["X","Y","Z"]
+        
         planesel = [item for item in planesel if item != min_list[1]]
 
         min_list = create_sections(workPart, axisorigin, origin, min_list[6], planesel, min_list[3]-7, min_list[3]+7, 1)
 
     elif min_list[2]==min_list[4]:
-        planesel = ["X","Y","Z"]
+        
         planesel = [item for item in planesel if item != min_list[1]]
 
         min_list = create_sections(workPart, axisorigin, origin, min_list[6], planesel, min_list[4]-7, min_list[4]+7, 1)
 
     else:
-        planesel = ["X","Y","Z"]
+        
         planesel = [item for item in planesel if item != min_list[1]]
 
         min_list = create_sections(workPart, axisorigin, origin, min_list[6], planesel, min_list[2]-7, min_list[2]+7, 1)
 
-    log("min list after correction",min_list)   
+    log("min list after correction",min_list)
+
         
 
 
-def basePlanedef():
+def basePlanedef(theSession,workPart):
     base_matrixX = NXOpen.Matrix3x3()
     base_matrixY = NXOpen.Matrix3x3()
     base_matrixZ = NXOpen.Matrix3x3()
@@ -143,19 +177,21 @@ def basePlanedef():
     base_matrixZ.Zz = 0.0
     base_plane_matrix = [[base_matrixX,["X","Y"]], [base_matrixY,["Y","Z"]], [base_matrixZ,["X","Z"]]]
 
-    theSession = NXOpen.Session.GetSession()
-    workPart = theSession.Parts.Work
+
     axisorigin = NXOpen.Point3d(0.0, 0.0, 0.0)
     origin = NXOpen.Point3d(0.0, 0.0, 0.0)    
     smalest_area = []
     for bm in base_plane_matrix:
             base_matrix = bm[0]
             planeSel = bm[1]
-            smalest_area.append(create_sections(workPart, axisorigin, origin, base_matrix, planeSel,-40, 40, 5))
+            smalest_area.append(create_sections(workPart, axisorigin, origin, base_matrix, planeSel,-30, 30, 5))
 
     min_list = min(smalest_area, key=lambda x: x[0])
     smalest_area.clear()
 
     correction_plane(workPart,min_list,axisorigin,origin)
 
-basePlanedef()
+####Call separate function####
+theSession = NXOpen.Session.GetSession()
+workPart = theSession.Parts.Work
+basePlanedef(theSession,workPart)
