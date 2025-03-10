@@ -104,12 +104,13 @@ def correctionSec(rotAxisSel, base_matrix, axisorigin, origin, workPart, angle_r
 
 
 def determinateAxies(workPart,final_matrix,axisorigin,origin, plane):
-    for i in range(0,50,5):
+    for i in range(0,50,1):
         dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)    
-        origin = get_normal_from_matrix(origin, final_matrix, plane[1], i)
+        origin = get_normal_from_matrix(origin, final_matrix, plane, i)
         log("newOrigin", origin)
         dynamicSectionBuilder.SetPlane(axisorigin, origin, final_matrix)
         dynamicSectionBuilder.Commit()
+        # time.sleep(0.5)
         correctionSec(plane, final_matrix, axisorigin, origin, workPart,-5,5,1)
 
     
@@ -134,7 +135,8 @@ def create_sections():
 
     dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)
     dynamicSectionBuilder.ShowClip = True
-
+    dynamicSectionBuilder.SetPlane(axisorigin, origin, base_matrixZ)
+    dynamicSectionBuilder.Commit()
 
     temp = MB.inputBox("intest Angel")
     ang = float(temp[0])
@@ -149,7 +151,7 @@ def create_sections():
 
 
 
-    determinateAxies(workPart,final_matrix,axisorigin,origin,plane)
+    determinateAxies(workPart,final_matrix,axisorigin,origin,plane[2])
 
 
 

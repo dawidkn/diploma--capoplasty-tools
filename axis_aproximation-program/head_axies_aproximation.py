@@ -110,3 +110,36 @@ def create_sections(workPart, axisorigin, origin, base_matrix, rotAxisSel, angle
 
     smalest_area.clear()
     return min_list
+
+#for testing only
+theSession = NXOpen.Session.GetSession()
+workPart = theSession.Parts.Work
+base_matrixZ = NXOpen.Matrix3x3()
+axisorigin = NXOpen.Point3d(0.0, 0.0, 0.0)
+origin = NXOpen.Point3d(0.0, -0.26495963211660245, 0.42402404807821298)
+base_matrixZ.Xx = 0.0
+base_matrixZ.Xy = -0.5299192642332049
+base_matrixZ.Xz = 0.848048096156426
+base_matrixZ.Yx = 0.8660254037844387
+base_matrixZ.Yy = 0.4240240480782129
+base_matrixZ.Yz = 0.2649596321166024
+base_matrixZ.Zx = -0.49999999999999994
+base_matrixZ.Zy = 0.7344311949024933
+base_matrixZ.Zz = 0.45892354478071395
+dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)
+dynamicSectionBuilder.ShowClip = True
+dynamicSectionBuilder.SetPlane(axisorigin, origin, base_matrixZ)
+dynamicSectionBuilder.Commit()
+planesel = ["X", "Y", "Z"]
+MB.msgBox("Start", "Start")
+ll = create_sections(workPart, axisorigin, origin, base_matrixZ, planesel, -30, 30, 5)
+log("test head axies aproximation: ", ll)
+TempPlaneSel = planesel.copy()
+TempPlaneSel.remove(ll[1])
+neworigin = get_normal_from_matrix(origin, ll[6], TempPlaneSel[1], 10)
+dynamicSectionBuilder.SetPlane(axisorigin, origin, ll[6])
+dynamicSectionBuilder.Commit()
+MB.msgBox("Start", "Start")
+dynamicSectionBuilder.SetPlane(axisorigin, neworigin, ll[6])
+dynamicSectionBuilder.Commit()
+#for testing only

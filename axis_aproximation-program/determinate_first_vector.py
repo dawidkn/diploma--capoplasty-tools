@@ -136,9 +136,10 @@ def correction_plane(workPart,min_list,axisorigin,origin):
 
         min_list = create_sections(workPart, axisorigin, origin, min_list[6], planesel, min_list[2]-7, min_list[2]+7, 1)
 
-    log("min list after correction",min_list)
-
-        
+    log("min list after correction",f"{min_list} and {min_list[6].Xx} {min_list[6].Xy} {min_list[6].Xz} {min_list[6].Yx} {min_list[6].Yy} {min_list[6].Yz} {min_list[6].Zx} {min_list[6].Zy} {min_list[6].Zz}")  
+    
+    origin = get_normal_from_matrix(origin, min_list[6], min_list[1], 0.5)  
+    log("newOrigin", origin) 
 
 
 def basePlanedef(theSession,workPart):
