@@ -39,5 +39,8 @@ def show_body():
     theSession.DisplayManager.ShowObjects(bodys, NXOpen.DisplayManager.LayerSetting.ChangeLayerToSelectable)
 
 
+def getLenghtline(line):
+    spLenght = line.GetLength()
+
 if __name__ == '__main__':
     main()

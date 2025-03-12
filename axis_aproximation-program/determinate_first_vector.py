@@ -136,10 +136,11 @@ def correction_plane(workPart,min_list,axisorigin,origin):
 
         min_list = create_sections(workPart, axisorigin, origin, min_list[6], planesel, min_list[2]-7, min_list[2]+7, 1)
 
-    log("min list after correction",f"{min_list} and {min_list[6].Xx} {min_list[6].Xy} {min_list[6].Xz} {min_list[6].Yx} {min_list[6].Yy} {min_list[6].Yz} {min_list[6].Zx} {min_list[6].Zy} {min_list[6].Zz}")  
+    log("min list after correction - dt virst vector",f"{min_list} and {min_list[6].Xx} {min_list[6].Xy} {min_list[6].Xz} {min_list[6].Yx} {min_list[6].Yy} {min_list[6].Yz} {min_list[6].Zx} {min_list[6].Zy} {min_list[6].Zz}")  
     
     origin = get_normal_from_matrix(origin, min_list[6], min_list[1], 0.5)  
-    log("newOrigin", origin) 
+    log("newOrigin - dt virst vector", origin)
+    return origin, min_list
 
 
 def basePlanedef(theSession,workPart):
@@ -190,9 +191,10 @@ def basePlanedef(theSession,workPart):
     min_list = min(smalest_area, key=lambda x: x[0])
     smalest_area.clear()
 
-    correction_plane(workPart,min_list,axisorigin,origin)
+    origin, min_list = correction_plane(workPart,min_list,axisorigin,origin)
+    return origin, min_list, axisorigin
 
 ####Call separate function####
-theSession = NXOpen.Session.GetSession()
-workPart = theSession.Parts.Work
-basePlanedef(theSession,workPart)
+# theSession = NXOpen.Session.GetSession()
+# workPart = theSession.Parts.Work
+# basePlanedef(theSession,workPart)

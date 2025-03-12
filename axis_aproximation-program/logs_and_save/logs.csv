@@ -1,7 +1,367 @@
-"0. 2025-03-10 22:52:41 - test head axies aproximation: : Value - [1337.567261815182, 'X', 0, -30, 30, 5, <NXOpen.Matrix3x3 object at 0x0000020F48254A50>]"
-"1. 2025-03-10 22:53:11 - test head axies aproximation: : Value - [1337.567261815182, 'X', 0, -30, 30, 5, <NXOpen.Matrix3x3 object at 0x0000020F56F12630>]"
-"2. 2025-03-10 22:54:07 - test head axies aproximation: : Value - [1337.567261815182, 'X', 0, -30, 30, 5, <NXOpen.Matrix3x3 object at 0x0000020F35F0A210>]"
-"3. 2025-03-10 22:56:10 - test head axies aproximation: : Value - [1337.567261815182, 'X', 0, -30, 30, 5, <NXOpen.Matrix3x3 object at 0x0000020F35F2ADB0>]"
-"4. 2025-03-10 22:57:28 - test head axies aproximation: : Value - [1337.567261815182, 'X', 0, -30, 30, 5, <NXOpen.Matrix3x3 object at 0x0000020F584B9990>]"
-"5. 2025-03-10 22:58:56 - test head axies aproximation: : Value - [1337.567261815182, 'X', 0, -30, 30, 5, <NXOpen.Matrix3x3 object at 0x0000020F584CF570>]"
-"6. 2025-03-10 23:03:36 - test head axies aproximation: : Value - [1337.567261815182, 'X', 0, -30, 30, 5, <NXOpen.Matrix3x3 object at 0x0000020F5ABFA150>]"
+"0. 2025-03-12 20:32:07 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+"
+"1. 2025-03-12 20:33:30 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 43, in create_extrude
+    spLenght = spline.GetLength()
+NXOpen.NXException: User abort
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 53, in create_extrude
+    boundedPlaneBuilder1 = workPart.Features.CreateBoundedPlaneBuilder(NXOpen.Features.BoundedPlane.Null)
+NXOpen.NXException: User abort
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 89, in create_extrude
+    extrudeBuilder1 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+NXOpen.NXException: User abort
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 142, in create_extrude
+    extrudeBuilder1 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+NXOpen.NXException: User abort
+"
+"2. 2025-03-12 20:36:22 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+"
+"3. 2025-03-12 20:36:35 - Status_main: Value - COG_Pos: [-284.99999902857724, -2.3768193333570163e-06, 2.435549236849666e-07]"
+4. 2025-03-12 20:36:35 - Status_main: Value - move_to_point
+"5. 2025-03-12 20:38:31 - Status_main: Value - COG_Pos: [-109.99999901783839, 8.85700233645534e-06, 6.457115391336051e-06]"
+6. 2025-03-12 20:38:31 - Status_main: Value - move_to_point
+"7. 2025-03-12 20:41:56 - Status_main: Value - COG_Pos: [-195.0000003439027, 3.257495699480316e-06, -2.038600084788728e-07]"
+8. 2025-03-12 20:41:56 - Status_main: Value - move_to_point
+"9. 2025-03-12 20:43:10 - min list after correction - dt virst vector: Value - [1443.7559433304912, 'Y', -24, -37, -23, 1, <NXOpen.Matrix3x3 object at 0x0000022034F26090>] and 0.4067366430758002 0.0 0.9135454576426009 0.7911535738303732 0.49999999999999994 -0.352244265553647 -0.4567727288213004 0.8660254037844387 0.20336832153790008"
+"10. 2025-03-12 20:43:10 - newOrigin - dt virst vector: Value - [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+11. 2025-03-12 20:43:15 - area: Value - 1534.5024939678415
+12. 2025-03-12 20:43:16 - area: Value - 1503.6717391529548
+13. 2025-03-12 20:43:16 - area: Value - 1467.825296646423
+14. 2025-03-12 20:43:16 - area: Value - 1443.7559433304925
+15. 2025-03-12 20:43:17 - area: Value - 1447.0060055318347
+16. 2025-03-12 20:43:17 - area: Value - 1452.8607981773407
+17. 2025-03-12 20:43:18 - area: Value - 1528.5589463405984
+18. 2025-03-12 20:43:18 - area: Value - 1497.646833629676
+19. 2025-03-12 20:43:19 - area: Value - 1455.5522118832746
+20. 2025-03-12 20:43:19 - area: Value - 1443.7559433304925
+21. 2025-03-12 20:43:19 - area: Value - 1439.8787708926493
+22. 2025-03-12 20:43:20 - area: Value - 1438.7064468947333
+23. 2025-03-12 20:43:20 - area: Value - 1399.3863566937373
+24. 2025-03-12 20:43:21 - area: Value - 1407.5843385942708
+25. 2025-03-12 20:43:21 - area: Value - 1422.1157250214417
+26. 2025-03-12 20:43:21 - area: Value - 1443.7559433304925
+27. 2025-03-12 20:43:22 - area: Value - 1482.919392540739
+28. 2025-03-12 20:43:22 - area: Value - 1551.4633217101666
+"29. 2025-03-12 20:43:22 - TempMinlist0: Value - [1399.3863566937373, 'Z', -6, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022037246090>]"
+"30. 2025-03-12 20:43:22 - TempMinlist2: Value - rangeRotT: -6, rangeRotD: -11"
+31. 2025-03-12 20:43:23 - area: Value - 1610.049236134077
+32. 2025-03-12 20:43:23 - area: Value - 1595.2864538709473
+33. 2025-03-12 20:43:24 - area: Value - 1580.0181278126734
+34. 2025-03-12 20:43:24 - area: Value - 1564.8990143373653
+35. 2025-03-12 20:43:25 - area: Value - 1549.341332920994
+36. 2025-03-12 20:43:26 - area: Value - 1607.314033764286
+37. 2025-03-12 20:43:26 - area: Value - 1590.6961802286035
+38. 2025-03-12 20:43:27 - area: Value - 1574.7893084272569
+39. 2025-03-12 20:43:27 - area: Value - 1559.1680872804552
+40. 2025-03-12 20:43:28 - area: Value - 1544.02451203577
+41. 2025-03-12 20:43:28 - area: Value - 1410.1841265385176
+42. 2025-03-12 20:43:29 - area: Value - 1404.7945550284262
+43. 2025-03-12 20:43:29 - area: Value - 1400.4796195412086
+44. 2025-03-12 20:43:30 - area: Value - 1398.451995715807
+45. 2025-03-12 20:43:30 - area: Value - 1398.063024528498
+"46. 2025-03-12 20:43:30 - TempMinlist2: Value - [1398.063024528498, 'Z', -7, -11, -6, 1, <NXOpen.Matrix3x3 object at 0x0000022027309390>]"
+"47. 2025-03-12 20:45:18 - Status_main: Value - COG_Pos: [2.0278967879426807e-06, 5.046359367220723e-06, 5.915180619160513e-06]"
+48. 2025-03-12 20:45:19 - Status_main: Value - move_to_point
+"49. 2025-03-12 20:46:48 - min list after correction - dt virst vector: Value - [1443.7559433304912, 'Y', -24, -37, -23, 1, <NXOpen.Matrix3x3 object at 0x0000022036827CF0>] and 0.4067366430758002 0.0 0.9135454576426009 0.7911535738303732 0.49999999999999994 -0.352244265553647 -0.4567727288213004 0.8660254037844387 0.20336832153790008"
+"50. 2025-03-12 20:46:48 - newOrigin - dt virst vector: Value - [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+51. 2025-03-12 20:47:03 - area: Value - 1534.5024939678415
+52. 2025-03-12 20:47:04 - area: Value - 1503.6717391529548
+53. 2025-03-12 20:47:04 - area: Value - 1467.825296646423
+54. 2025-03-12 20:47:05 - area: Value - 1443.7559433304925
+55. 2025-03-12 20:47:05 - area: Value - 1447.0060055318347
+56. 2025-03-12 20:47:06 - area: Value - 1452.8607981773407
+57. 2025-03-12 20:47:06 - area: Value - 1528.5589463405984
+58. 2025-03-12 20:47:07 - area: Value - 1497.646833629676
+59. 2025-03-12 20:47:07 - area: Value - 1455.5522118832746
+60. 2025-03-12 20:47:08 - area: Value - 1443.7559433304925
+61. 2025-03-12 20:47:09 - area: Value - 1439.8787708926493
+62. 2025-03-12 20:47:09 - area: Value - 1438.7064468947333
+63. 2025-03-12 20:47:10 - area: Value - 1399.3863566937373
+64. 2025-03-12 20:47:10 - area: Value - 1407.5843385942708
+65. 2025-03-12 20:47:11 - area: Value - 1422.1157250214417
+66. 2025-03-12 20:47:11 - area: Value - 1443.7559433304925
+67. 2025-03-12 20:47:12 - area: Value - 1482.919392540739
+68. 2025-03-12 20:47:12 - area: Value - 1551.4633217101666
+"69. 2025-03-12 20:47:12 - TempMinlist0: Value - [1399.3863566937373, 'Z', -6, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022036EA9990>]"
+"70. 2025-03-12 20:47:12 - TempMinlist2: Value - rangeRotT: -6, rangeRotD: -11"
+71. 2025-03-12 20:47:13 - area: Value - 1610.049236134077
+72. 2025-03-12 20:47:13 - area: Value - 1595.2864538709473
+73. 2025-03-12 20:47:14 - area: Value - 1580.0181278126734
+74. 2025-03-12 20:47:15 - area: Value - 1564.8990143373653
+75. 2025-03-12 20:47:15 - area: Value - 1549.341332920994
+76. 2025-03-12 20:47:16 - area: Value - 1607.314033764286
+77. 2025-03-12 20:47:17 - area: Value - 1590.6961802286035
+78. 2025-03-12 20:47:17 - area: Value - 1574.7893084272569
+79. 2025-03-12 20:47:18 - area: Value - 1559.1680872804552
+80. 2025-03-12 20:47:18 - area: Value - 1544.02451203577
+81. 2025-03-12 20:47:19 - area: Value - 1410.1841265385176
+82. 2025-03-12 20:47:19 - area: Value - 1404.7945550284262
+83. 2025-03-12 20:47:20 - area: Value - 1400.4796195412086
+84. 2025-03-12 20:47:20 - area: Value - 1398.451995715807
+85. 2025-03-12 20:47:21 - area: Value - 1398.063024528498
+"86. 2025-03-12 20:47:21 - TempMinlist2: Value - [1398.063024528498, 'Z', -7, -11, -6, 1, <NXOpen.Matrix3x3 object at 0x0000022027FF3690>]"
+87. 2025-03-12 20:47:25 - area: Value - 1406.73994514915
+88. 2025-03-12 20:47:26 - area: Value - 1391.3781739291662
+89. 2025-03-12 20:47:26 - area: Value - 1392.701824915403
+90. 2025-03-12 20:47:27 - area: Value - 1398.063024528497
+91. 2025-03-12 20:47:27 - area: Value - 1405.7532225697469
+92. 2025-03-12 20:47:27 - area: Value - 1415.199158124977
+93. 2025-03-12 20:47:28 - area: Value - 1386.4139021968806
+94. 2025-03-12 20:47:28 - area: Value - 1386.440387705383
+95. 2025-03-12 20:47:29 - area: Value - 1390.8416991381139
+96. 2025-03-12 20:47:29 - area: Value - 1398.063024528497
+97. 2025-03-12 20:47:29 - area: Value - 1407.5147843261623
+98. 2025-03-12 20:47:30 - area: Value - 1417.800679467686
+99. 2025-03-12 20:47:30 - area: Value - 1488.9790430067487
+100. 2025-03-12 20:47:31 - area: Value - 1445.610922532232
+101. 2025-03-12 20:47:31 - area: Value - 1417.75608048468
+102. 2025-03-12 20:47:32 - area: Value - 1398.063024528497
+103. 2025-03-12 20:47:32 - area: Value - 1387.3806125257647
+104. 2025-03-12 20:47:32 - area: Value - 1383.6981225469528
+"105. 2025-03-12 20:47:32 - TempMinlist0: Value - [1383.6981225469528, 'Z', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022036D00AB0>]"
+106. 2025-03-12 20:47:34 - area: Value - 1487.2277108105352
+107. 2025-03-12 20:47:35 - area: Value - 1421.2899219890455
+108. 2025-03-12 20:47:35 - area: Value - 1389.6348990089332
+109. 2025-03-12 20:47:35 - area: Value - 1383.698122546952
+110. 2025-03-12 20:47:36 - area: Value - 1382.2765981674947
+111. 2025-03-12 20:47:36 - area: Value - 1383.3539455704515
+112. 2025-03-12 20:47:37 - area: Value - 1393.935754141453
+113. 2025-03-12 20:47:37 - area: Value - 1384.1214998977762
+114. 2025-03-12 20:47:38 - area: Value - 1382.2530387086144
+115. 2025-03-12 20:47:38 - area: Value - 1383.698122546952
+116. 2025-03-12 20:47:39 - area: Value - 1386.295381316571
+117. 2025-03-12 20:47:39 - area: Value - 1389.8526373833556
+118. 2025-03-12 20:47:39 - area: Value - 1467.006823914508
+119. 2025-03-12 20:47:40 - area: Value - 1429.9466109000884
+120. 2025-03-12 20:47:40 - area: Value - 1402.6411471954293
+121. 2025-03-12 20:47:41 - area: Value - 1383.698122546952
+122. 2025-03-12 20:47:41 - area: Value - 1369.3694896404081
+123. 2025-03-12 20:47:42 - area: Value - 1360.354225040058
+"124. 2025-03-12 20:47:42 - TempMinlist0: Value - [1360.354225040058, 'Z', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022036827F30>]"
+125. 2025-03-12 20:47:44 - area: Value - 1521.531463570369
+126. 2025-03-12 20:47:44 - area: Value - 1452.271338075695
+127. 2025-03-12 20:47:45 - area: Value - 1377.4439815966423
+128. 2025-03-12 20:47:45 - area: Value - 1360.354225040057
+129. 2025-03-12 20:47:46 - area: Value - 1352.6064964532745
+130. 2025-03-12 20:47:46 - area: Value - 1350.5438963543231
+131. 2025-03-12 20:47:46 - area: Value - 1388.9526442644624
+132. 2025-03-12 20:47:47 - area: Value - 1367.4968274564096
+133. 2025-03-12 20:47:47 - area: Value - 1361.940364454554
+134. 2025-03-12 20:47:48 - area: Value - 1360.354225040057
+135. 2025-03-12 20:47:48 - area: Value - 1360.560701894512
+136. 2025-03-12 20:47:48 - area: Value - 1362.2280661879354
+137. 2025-03-12 20:47:49 - area: Value - 1448.9936085016927
+138. 2025-03-12 20:47:49 - area: Value - 1414.1747796649033
+139. 2025-03-12 20:47:50 - area: Value - 1384.921764557542
+140. 2025-03-12 20:47:50 - area: Value - 1360.354225040057
+141. 2025-03-12 20:47:50 - area: Value - 1342.0329736036667
+142. 2025-03-12 20:47:51 - area: Value - 1331.6710103959372
+"143. 2025-03-12 20:47:51 - TempMinlist0: Value - [1331.6710103959372, 'Z', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022036827B10>]"
+144. 2025-03-12 20:47:52 - area: Value - 1544.6844636500684
+145. 2025-03-12 20:47:53 - area: Value - 1458.4653779380649
+146. 2025-03-12 20:47:53 - area: Value - 1359.83659900922
+147. 2025-03-12 20:47:54 - area: Value - 1331.6710103959374
+148. 2025-03-12 20:47:54 - area: Value - 1315.186540486127
+149. 2025-03-12 20:47:55 - area: Value - 1306.0263726300213
+150. 2025-03-12 20:47:55 - area: Value - 1358.1006571248945
+151. 2025-03-12 20:47:56 - area: Value - 1345.7830842494964
+152. 2025-03-12 20:47:56 - area: Value - 1337.4538733283534
+153. 2025-03-12 20:47:57 - area: Value - 1331.6710103959374
+154. 2025-03-12 20:47:57 - area: Value - 1328.430124151754
+155. 2025-03-12 20:47:58 - area: Value - 1327.0207412651384
+156. 2025-03-12 20:47:58 - area: Value - 1432.2951275351468
+157. 2025-03-12 20:47:58 - area: Value - 1391.6044490092813
+158. 2025-03-12 20:47:59 - area: Value - 1357.2793590659778
+159. 2025-03-12 20:47:59 - area: Value - 1331.6710103959374
+160. 2025-03-12 20:48:00 - area: Value - 1318.5992368369227
+161. 2025-03-12 20:48:00 - area: Value - 1320.0385713014039
+"162. 2025-03-12 20:48:00 - TempMinlist0: Value - [1306.0263726300213, 'X', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022033EFF9F0>]"
+163. 2025-03-12 20:48:02 - area: Value - 1076.3431049904952
+164. 2025-03-12 20:48:02 - area: Value - 1068.7624966431144
+165. 2025-03-12 20:48:03 - area: Value - 1065.0157886222999
+166. 2025-03-12 20:48:03 - area: Value - 1065.6575553520777
+167. 2025-03-12 20:48:04 - area: Value - 1071.9595379289253
+168. 2025-03-12 20:48:04 - area: Value - 1086.9959758207913
+169. 2025-03-12 20:48:04 - area: Value - 1091.0710523801117
+170. 2025-03-12 20:48:05 - area: Value - 1081.1408733441663
+171. 2025-03-12 20:48:06 - area: Value - 1072.682102284612
+172. 2025-03-12 20:48:06 - area: Value - 1065.6575553520777
+173. 2025-03-12 20:48:07 - area: Value - 1059.8688260719355
+174. 2025-03-12 20:48:07 - area: Value - 1055.2394839503133
+175. 2025-03-12 20:48:07 - area: Value - 1022.2668909614983
+176. 2025-03-12 20:48:08 - area: Value - 1020.8594404077784
+177. 2025-03-12 20:48:08 - area: Value - 1032.4344237217215
+178. 2025-03-12 20:48:09 - area: Value - 1065.6575553520777
+179. 2025-03-12 20:48:09 - area: Value - 1153.7343415445846
+180. 2025-03-12 20:48:10 - area: Value - 1268.3749890904382
+"181. 2025-03-12 20:48:10 - TempMinlist0: Value - [1020.8594404077784, 'Z', -4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022036827B10>]"
+182. 2025-03-12 20:48:11 - area: Value - 1056.5502429942064
+183. 2025-03-12 20:48:12 - area: Value - 1041.7309673042141
+184. 2025-03-12 20:48:12 - area: Value - 1029.9764195861067
+185. 2025-03-12 20:48:13 - area: Value - 1020.8594404077784
+186. 2025-03-12 20:48:13 - area: Value - 1014.0650204484159
+187. 2025-03-12 20:48:14 - area: Value - 1010.3368802717621
+188. 2025-03-12 20:48:14 - area: Value - 1035.5203573515305
+189. 2025-03-12 20:48:15 - area: Value - 1029.8082336218258
+190. 2025-03-12 20:48:15 - area: Value - 1024.9159489213328
+191. 2025-03-12 20:48:15 - area: Value - 1020.8594404077784
+192. 2025-03-12 20:48:16 - area: Value - 1017.5103901783871
+193. 2025-03-12 20:48:16 - area: Value - 1014.7885953028408
+194. 2025-03-12 20:48:17 - area: Value - 1099.607682032383
+195. 2025-03-12 20:48:17 - area: Value - 1053.8609213053464
+196. 2025-03-12 20:48:17 - area: Value - 1029.5342199057095
+197. 2025-03-12 20:48:18 - area: Value - 1020.8594404077784
+198. 2025-03-12 20:48:18 - area: Value - 1028.198067568085
+199. 2025-03-12 20:48:19 - area: Value - 1063.9879092216377
+"200. 2025-03-12 20:48:19 - TempMinlist0: Value - [1010.3368802717621, 'X', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022033EFF150>]"
+201. 2025-03-12 20:48:21 - area: Value - 995.8303499499486
+202. 2025-03-12 20:48:21 - area: Value - 1024.1407806343207
+203. 2025-03-12 20:48:22 - area: Value - 1052.6369946172174
+204. 2025-03-12 20:48:23 - area: Value - 1079.8047507523306
+205. 2025-03-12 20:48:23 - area: Value - 1107.1010657867787
+206. 2025-03-12 20:48:24 - area: Value - 1135.2679566190986
+207. 2025-03-12 20:48:24 - area: Value - 1075.7316312422927
+208. 2025-03-12 20:48:25 - area: Value - 1075.026159841945
+209. 2025-03-12 20:48:25 - area: Value - 1076.4412195434656
+210. 2025-03-12 20:48:26 - area: Value - 1079.8047507523306
+211. 2025-03-12 20:48:26 - area: Value - 1085.2832977657406
+212. 2025-03-12 20:48:27 - area: Value - 1092.8302497036855
+213. 2025-03-12 20:48:27 - area: Value - 883.9314927665937
+214. 2025-03-12 20:48:28 - area: Value - 905.5358027495083
+215. 2025-03-12 20:48:28 - area: Value - 973.5721141823374
+216. 2025-03-12 20:48:29 - area: Value - 1079.8047507523306
+217. 2025-03-12 20:48:29 - area: Value - 1184.3589913629744
+218. 2025-03-12 20:48:30 - area: Value - 1302.3682691828974
+"219. 2025-03-12 20:48:30 - TempMinlist0: Value - [883.9314927665937, 'Z', -6, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022036D009F0>]"
+"220. 2025-03-12 20:48:30 - TempMinlist2: Value - rangeRotT: -6, rangeRotD: -11"
+221. 2025-03-12 20:48:30 - area: Value - 957.0771921958252
+222. 2025-03-12 20:48:31 - area: Value - 960.908320058942
+223. 2025-03-12 20:48:31 - area: Value - 966.503335693818
+224. 2025-03-12 20:48:32 - area: Value - 974.1212486689506
+225. 2025-03-12 20:48:32 - area: Value - 983.8022006378577
+226. 2025-03-12 20:48:32 - area: Value - 1086.912683846214
+227. 2025-03-12 20:48:33 - area: Value - 1083.5777344780593
+228. 2025-03-12 20:48:34 - area: Value - 1080.8281001485573
+229. 2025-03-12 20:48:34 - area: Value - 1078.5834210041353
+230. 2025-03-12 20:48:35 - area: Value - 1076.902140791555
+231. 2025-03-12 20:48:35 - area: Value - 913.6850161072581
+232. 2025-03-12 20:48:35 - area: Value - 900.5564717557271
+233. 2025-03-12 20:48:36 - area: Value - 891.1001063973473
+234. 2025-03-12 20:48:36 - area: Value - 884.7986951843008
+235. 2025-03-12 20:48:37 - area: Value - 882.0601127211827
+"236. 2025-03-12 20:48:37 - TempMinlist2: Value - [882.0601127211827, 'Z', -7, -11, -6, 1, <NXOpen.Matrix3x3 object at 0x0000022036827B10>]"
+237. 2025-03-12 20:48:38 - area: Value - 893.7959631504125
+238. 2025-03-12 20:48:39 - area: Value - 887.8492705562554
+239. 2025-03-12 20:48:39 - area: Value - 883.8804298929572
+240. 2025-03-12 20:48:40 - area: Value - 882.0601127211831
+241. 2025-03-12 20:48:40 - area: Value - 882.5372318876068
+242. 2025-03-12 20:48:41 - area: Value - 885.600417530452
+243. 2025-03-12 20:48:41 - area: Value - 885.259298121174
+244. 2025-03-12 20:48:41 - area: Value - 883.5518015450001
+245. 2025-03-12 20:48:42 - area: Value - 882.5030561271845
+246. 2025-03-12 20:48:42 - area: Value - 882.0601127211831
+247. 2025-03-12 20:48:43 - area: Value - 882.3114687667485
+248. 2025-03-12 20:48:43 - area: Value - 883.2592302598798
+249. 2025-03-12 20:48:44 - area: Value - 985.5831531357916
+250. 2025-03-12 20:48:44 - area: Value - 926.9798652347401
+251. 2025-03-12 20:48:44 - area: Value - 895.7921206867087
+252. 2025-03-12 20:48:45 - area: Value - 882.0601127211831
+253. 2025-03-12 20:48:45 - area: Value - 890.6622081912209
+254. 2025-03-12 20:48:46 - area: Value - 939.4552948854499
+"255. 2025-03-12 20:48:46 - TempMinlist0: Value - [882.0601127211831, 'X', 0, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022033EFF150>]"
+256. 2025-03-12 20:48:47 - area: Value - 886.326653270707
+257. 2025-03-12 20:48:47 - area: Value - 909.0463296287971
+258. 2025-03-12 20:48:48 - area: Value - 939.6977608960481
+259. 2025-03-12 20:48:48 - area: Value - 972.6595751245155
+260. 2025-03-12 20:48:49 - area: Value - 1005.2820999169126
+261. 2025-03-12 20:48:49 - area: Value - 1037.65040545979
+262. 2025-03-12 20:48:50 - area: Value - 949.7648175915701
+263. 2025-03-12 20:48:50 - area: Value - 954.8759033002664
+264. 2025-03-12 20:48:51 - area: Value - 962.5202757376053
+265. 2025-03-12 20:48:51 - area: Value - 972.6595751245155
+266. 2025-03-12 20:48:52 - area: Value - 985.3212371294966
+267. 2025-03-12 20:48:52 - area: Value - 1000.4818917587945
+268. 2025-03-12 20:48:53 - area: Value - 819.7172670362163
+269. 2025-03-12 20:48:53 - area: Value - 831.2295409314471
+270. 2025-03-12 20:48:53 - area: Value - 875.1509824611618
+271. 2025-03-12 20:48:54 - area: Value - 972.6595751245155
+272. 2025-03-12 20:48:54 - area: Value - 1081.536720422309
+273. 2025-03-12 20:48:55 - area: Value - 1196.1943604906305
+"274. 2025-03-12 20:48:55 - TempMinlist0: Value - [819.7172670362163, 'Z', -6, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x0000022037B2F450>]"
+"275. 2025-03-12 20:48:55 - TempMinlist2: Value - rangeRotT: -6, rangeRotD: -11"
+276. 2025-03-12 20:48:55 - area: Value - 859.5642259743516
+277. 2025-03-12 20:48:56 - area: Value - 862.5202534997513
+278. 2025-03-12 20:48:56 - area: Value - 866.5523173883782
+279. 2025-03-12 20:48:57 - area: Value - 871.7478835623508
+280. 2025-03-12 20:48:57 - area: Value - 878.270273576284
+281. 2025-03-12 20:48:58 - area: Value - 948.8461554773919
+282. 2025-03-12 20:48:58 - area: Value - 947.6815338423071
+283. 2025-03-12 20:48:59 - area: Value - 947.1680432565032
+284. 2025-03-12 20:48:59 - area: Value - 947.3373098305996
+285. 2025-03-12 20:49:00 - area: Value - 948.230661172385
+286. 2025-03-12 20:49:00 - area: Value - 878.135707851385
+287. 2025-03-12 20:49:00 - area: Value - 857.329492044817
+288. 2025-03-12 20:49:01 - area: Value - 841.6478990600879
+289. 2025-03-12 20:49:01 - area: Value - 829.942730898757
+290. 2025-03-12 20:49:02 - area: Value - 822.493910319597
+"291. 2025-03-12 20:49:02 - TempMinlist2: Value - [822.493910319597, 'Z', -7, -11, -6, 1, <NXOpen.Matrix3x3 object at 0x0000022036827150>]"
