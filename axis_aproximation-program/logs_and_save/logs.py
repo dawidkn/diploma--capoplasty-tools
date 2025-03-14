@@ -4,9 +4,11 @@ from datetime import datetime
 import NXOpen
 import traceback
 import sys
+from pathlib import Path
 
 def log(name, val1):
-    file_path = r"C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\logs_and_save\logs.csv"
+    base_path = Path(__file__).parent
+    file_path = base_path / "logs.csv"
 
     
     next_index = 0
@@ -25,7 +27,8 @@ def log(name, val1):
 
 def errorLog():
 
-    file_path = r"C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\logs_and_save\logs.csv"
+    base_path = Path(__file__).parent
+    file_path = base_path / "logs.csv"
     next_index = 0
     theSession  = NXOpen.Session.GetSession()
     logFile = theSession.LogFile

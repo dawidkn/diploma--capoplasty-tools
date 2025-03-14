@@ -2,7 +2,7 @@ import csv
 import os
 
 def save_to(name, value):
-    file_path = r"C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\logs_and_save\actions.csv"
+    file_path = r"praca magisterska - program\axis_aproximation-program\logs_and_save\actions.csv"
 
     next_index = 1
     if os.path.isfile(file_path):
@@ -18,14 +18,14 @@ def save_to(name, value):
         writer.writerow([next_index,name, value])
 
 def read_actions(index):
-    file_path = r"C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\logs_and_save\actions.csv" 
+    file_path = r"praca magisterska - program\axis_aproximation-program\logs_and_save\actions.csv"
     with open(file_path, mode='r', newline='', encoding='utf-8') as file:
         reader = csv.reader(file)
         lines = list(reader)
         return lines[index]
 
 def read_logs(index):
-    file_path = r"C:\Users\dawid\Desktop\praca magisterska\axis_aproximation-program\logs_and_save\logs.csv" 
+    file_path = r"praca magisterska - program\axis_aproximation-program\logs_and_save\actions.csv"
     with open(file_path, mode='r', newline='', encoding='utf-8') as file:
         reader = csv.reader(file)
         lines = list(reader)
