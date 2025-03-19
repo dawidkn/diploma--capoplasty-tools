@@ -31,7 +31,7 @@ for solid_body in display_body:
 
         origin, min_list, axisorigin = CS.basePlanedef(theSession,workPart)
 
-        HA.correction(workPart, axisorigin, origin, min_list)
+        HA.correction(workPart, axisorigin, origin, min_list, theSession)
         
         msgBox("This is the END", "Work in progress")
         sys.exit()

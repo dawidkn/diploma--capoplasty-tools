@@ -1,11 +1,22 @@
-﻿import csv
-import os
-from datetime import datetime
+﻿# NX 2011
+# Journal created by dawid on Wed Mar 19 22:47:19 2025 Środkowoeuropejski czas stand.
+
+#
+import math
 import NXOpen
-import traceback
-import sys
-from pathlib import Path
-from logs_and_save.logs import log,errorLog, errorExit
+def main() : 
 
-
-log("test", "testttttttttttttttttttt")
+    theSession  = NXOpen.Session.GetSession()
+    workPart = theSession.Parts.Work
+    displayPart = theSession.Parts.Display
+    # ----------------------------------------------
+    #   Menu: View->Section->Clip Section
+    # ----------------------------------------------
+    workPart.ModelingViews.WorkView.DisplaySectioningToggle = False
+    
+    # ----------------------------------------------
+    #   Menu: Tools->Journal->Stop Recording
+    # ----------------------------------------------
+    
+if __name__ == '__main__':
+    main()

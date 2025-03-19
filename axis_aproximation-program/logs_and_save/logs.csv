@@ -1,0 +1,29 @@
+"0. 2025-03-18 21:31:17 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\test2.py"", line 44, in <module>
+    associativeLineBuilder1.StartPoint.Value = point5
+TypeError: First parameter is invalid. Expecting NXOpen.TaggedObject type, found NXOpen.Point3d.
+"
+"1. 2025-03-18 21:31:34 - point5: Value - [X=100,Y=100,Z=100]"
+"2. 2025-03-18 21:31:34 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\test2.py"", line 56, in <module>
+    line1 = NXOpen.CurveCollection.CreateLine(point5,point10)
+TypeError: descriptor 'CreateLine' for 'NXOpen.CurveCollection' objects doesn't apply to a 'NXOpen.Point3d' object
+"
+"3. 2025-03-19 19:28:49 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE93E8450>]"
+"4. 2025-03-19 19:29:08 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
+"5. 2025-03-19 19:29:08 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE93E8450>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
+6. 2025-03-19 19:29:08 - tempAxies: Value - Y
+"7. 2025-03-19 22:21:07 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD7CB9210>]"
+"8. 2025-03-19 22:21:32 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
+"9. 2025-03-19 22:21:32 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD7CB9210>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
+"10. 2025-03-19 22:21:32 - tempAxies: Value - ['X', 'Y']"
+"11. 2025-03-19 22:38:49 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE9C6D210>]"
+"12. 2025-03-19 22:39:11 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
+"13. 2025-03-19 22:39:11 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE9C6D210>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
+"14. 2025-03-19 22:39:11 - tempAxies: Value - ['X', 'Y']"
+15. 2025-03-19 22:41:03 - test: Value - ['Z']
+16. 2025-03-19 22:41:45 - test: Value - Z
+"17. 2025-03-19 22:50:03 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD98F5B70>]"
+"18. 2025-03-19 22:50:34 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
+"19. 2025-03-19 22:50:34 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD98F5B70>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
+"20. 2025-03-19 22:50:34 - tempAxies: Value - ['X', 'Y']"

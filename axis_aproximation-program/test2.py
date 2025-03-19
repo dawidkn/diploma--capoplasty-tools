@@ -11,93 +11,78 @@ import NXOpen.Drawings
 
 theSession  = NXOpen.Session.GetSession()
 workPart = theSession.Parts.Work
+
+def get_normal_from_matrix(originPoint, mat, axis, distance):
+
+    if axis == "X":
+        vx, vy, vz = mat.Xx, mat.Xy, mat.Xz  # Wektor osi X
+    elif axis == "Y":
+        vx, vy, vz = mat.Yx, mat.Yy, mat.Yz  # Wektor osi Y
+    elif axis == "Z":
+        vx, vy, vz = mat.Zx, mat.Zy, mat.Zz  # Wektor osi Z
+    else:
+        raise ValueError("unknown axis. Use 'X', 'Y' or 'Z'.")
+
+    # Normalizacja wektora
+    length = (vx**2 + vy**2 + vz**2) ** 0.5
+    vx /= length
+    vy /= length
+    vz /= length
+
+    # Obliczenie przesunięcia
+    dx = vx * distance
+    dy = vy * distance
+    dz = vz * distance
+
+    x = originPoint.X
+    y = originPoint.Y
+    z = originPoint.Z
+
+    # Nowa pozycja
+    new_x = x + dx
+    new_y = y + dy
+    new_z = z + dz
+    origin = NXOpen.Point3d(new_x, new_y, new_z)  
+    return origin
+
+def showSection(workPart, axisorigin, origin, base_matrix):
+    dynamicSectionBuilder = workPart.DynamicSections.CreateSectionBuilder(workPart.ModelingViews.WorkView)
+    dynamicSectionBuilder.ShowClip = True
+    dynamicSectionBuilder.SetPlane(axisorigin, origin, base_matrix)
+    dynamicSectionBuilder.Commit()
+
+origin = NXOpen.Point3d(-7.8570405130554013, 29.634013862309477, 15.933669326006257)
+base_matrixZ = NXOpen.Matrix3x3()
+axisorigin = NXOpen.Point3d(0.0, 0.0, 0.0)
+
+base_matrixZ.Xx = 0.002376946988311951
+base_matrixZ.Xy = -0.44256303930778496
+base_matrixZ.Xz = 0.8967342451148336
+base_matrixZ.Yx = 0.5796605538363047
+base_matrixZ.Yy = 0.7313219150735455
+base_matrixZ.Yz = 0.3593910110998197
+base_matrixZ.Zx = -0.8148545836216443
+base_matrixZ.Zy = 0.5189472157857848
+base_matrixZ.Zz = 0.25827464989614946
+TempPlaneSel =['X', 'Y']
+planeSel = ["X", "Y", "Z"]
+
+
+axies = list(set(planeSel)-set(TempPlaneSel))
+
+log("test", axies[0])
+showSection(workPart, axisorigin, origin, base_matrixZ)
+
+endPoint = get_normal_from_matrix(origin, base_matrixZ,axies[0], -100)
+startPoint = get_normal_from_matrix(origin, base_matrixZ,axies[0], 100)
+
 try:
-        boundedPlaneBuilder1 = workPart.Features.CreateBoundedPlaneBuilder(NXOpen.Features.BoundedPlane.Null)
-        boundedPlaneBuilder1.BoundingCurves.SetAllowedEntityTypes(NXOpen.Section.AllowTypes.OnlyCurves)
-        selectionIntentRuleOptions1 = workPart.ScRuleFactory.CreateRuleOptions()
-        selectionIntentRuleOptions1.SetSelectedFromInactive(False)
-        splines = workPart.Splines
-        lines = workPart.Lines
-        boundedPlaneBuilder1.BoundingCurves.AllowSelfIntersection(False)
-        boundedPlaneBuilder1.BoundingCurves.AllowDegenerateCurves(True)
-        rules1 = [None] * 1 
-        for line in lines:
-            lineObj = []
-            spLenght = line.GetLength()
-            if spLenght <0.3:
-                continue
-            else:
-                lineObj.append(line)
-                curveDumbRule1 = workPart.ScRuleFactory.CreateRuleBaseCurveDumb(lineObj, selectionIntentRuleOptions1)
-                rules1 = [None] * 1 
-                rules1[0] = curveDumbRule1
-                helpPoint1 = NXOpen.Point3d(0.0, 0.0, 0.0)
-                boundedPlaneBuilder1.BoundingCurves.AddToSection(rules1, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint1, NXOpen.Section.Mode.Create, False)
-        for spline in splines:
-            splObj = []
-            spLenght = spline.GetLength()
-            if spLenght <0.3:
-                continue
-            else:
-                splObj.append(spline)
-                curveDumbRule1 = workPart.ScRuleFactory.CreateRuleBaseCurveDumb(splObj, selectionIntentRuleOptions1)
-                rules1 = [None] * 1 
-                rules1[0] = curveDumbRule1
-                helpPoint1 = NXOpen.Point3d(0.0, 0.0, 0.0)
 
-                boundedPlaneBuilder1.BoundingCurves.AddToSection(rules1, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint1, NXOpen.Section.Mode.Create, False)
-        nXObject1 = boundedPlaneBuilder1.Commit()
+
+    line1 = workPart.Curves.CreateLine(endPoint,startPoint)
+
+
 except:
-    try:
-        extrudeBuilder1 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+    errorLog()
 
-        unit1 = extrudeBuilder1.Draft.FrontDraftAngle.Units
 
-        extrudeBuilder1.BooleanOperation.Type = NXOpen.GeometricUtilities.BooleanOperation.BooleanType.Create
-        section1 = workPart.Sections.CreateSection(0.0094999999999999998, 0.01, 0.5)
-        extrudeBuilder1.Section = section1
-
-        extrudeBuilder1.Limits.StartExtend.Value.SetFormula("0")
-        extrudeBuilder1.Limits.EndExtend.Value.SetFormula("0")
-
-        section1.DistanceTolerance = 0.01
-        lines = workPart.Lines
-
-        for line in lines:
-            lineObj = []
-            lineObj.append(line)
-            selectionIntentRuleOptions = workPart.ScRuleFactory.CreateRuleOptions()
-            selectionIntentRuleOptions.SetSelectedFromInactive(False)
-            curveDumbRule = workPart.ScRuleFactory.CreateRuleBaseCurveDumb(lineObj, selectionIntentRuleOptions)
-            rules = [None] * 1 
-            rules[0] = curveDumbRule
-            helpPoint = NXOpen.Point3d(0.0, 0.0, 0.0)
-
-            section1.AddToSection(rules, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint, NXOpen.Section.Mode.Create, False)
-
-        splines = workPart.Splines
-
-        for spline in splines:
-            splObj = []
-
-            
- 
-            splObj.append(spline)
-            selectionIntentRuleOptions = workPart.ScRuleFactory.CreateRuleOptions()
-            selectionIntentRuleOptions.SetSelectedFromInactive(False)
-            curveDumbRule = workPart.ScRuleFactory.CreateRuleBaseCurveDumb(splObj, selectionIntentRuleOptions)
-            rules = [None] * 1 
-            rules[0] = curveDumbRule
-            helpPoint = NXOpen.Point3d(0.0, 0.0, 0.0)
-            extrudeBuilder1.DistanceTolerance = 0.04
-            section1.AddToSection(rules, NXOpen.NXObject.Null, NXOpen.NXObject.Null, NXOpen.NXObject.Null, helpPoint, NXOpen.Section.Mode.Create, False)
-
-        origin1 = NXOpen.Point3d(-9.8446232789497294, -2.58990454796721, 6.3232252947931977)
-        vector1 = NXOpen.Vector3d(0.0, 0.0, 1.0)
-        direction1 = workPart.Directions.CreateDirection(origin1, vector1, NXOpen.SmartObject.UpdateOption.WithinModeling)
-        extrudeBuilder1.Direction = direction1
-
-        feature1 = extrudeBuilder1.CommitFeature()
-    except Exception as ex:
-        errorLog()
-        errorExit()
