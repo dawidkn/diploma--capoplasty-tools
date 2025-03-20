@@ -202,6 +202,29 @@ def create_extrude(workPart):
             errorLog()
             errorExit()
 
+def centroid(workPart, theSession): 
+    scCollector1 = workPart.ScCollectors.CreateCollector()
+    scCollector1.SetMultiComponent()
+    workPart.MeasureManager.SetPartTransientModification()
+
+    selectionIntentRuleOptions = workPart.ScRuleFactory.CreateRuleOptions()
+    selectionIntentRuleOptions.SetSelectedFromInactive(False)
+
+    extrudes = workPart.Features
+    faces = [NXOpen.Face.Null] * 1
+    temp_f = []
+    for extrude in extrudes:
+        temp_f.append(extrude)
+    
+    faces[0]=temp_f[1]
+    temp_f2 = faces[0]
+    temp_f = temp_f2.GetFaces()
+
+    measureData = theSession.Measurement.GetFaceProperties(temp_f, 0.98999999999999999, NXOpen.Measurement.AlternateFace.Radius, True)
+    centroid = measureData[3]
+
+    return centroid
+
 def measureSurface(theSession,workPart):
     workPart.MeasureManager.SetPartTransientModification()
     scCollector1 = workPart.ScCollectors.CreateCollector()

@@ -147,20 +147,20 @@ def createVector(RotMatrix, origin, TempPlaneSel, workPart, theSession):
 
     axiesList = list(set(planeSel)-set(TempPlaneSel))
     axies = axiesList[0]
-
+    # log("axies", axies)
     endPoint = get_normal_from_matrix(origin, RotMatrix,axies, -100)
     startPoint = get_normal_from_matrix(origin, RotMatrix,axies, 100)
     workPart.ModelingViews.WorkView.DisplaySectioningToggle = False #turn off cilp
     line1 = workPart.Curves.CreateLine(endPoint,startPoint)
 
-    result = MB.YNBox("Confirm", "Is it Correct Vector?")
-    if result == 1:
-        MB.msgBox("test", "correct")
-        removeLines(workPart, theSession)
-    else:
-        MB.msgBox("vector", "In Progress")
-        sys.exit()
-
+    # result = MB.YNBox("Confirm", "Is it Correct Vector?")
+    # if result == 1:
+        # MB.msgBox("test", "correct")
+    removeLines(workPart, theSession)
+    # else:
+    #     MB.msgBox("vector", "Wrong vector - In Progress")
+    #     sys.exit()
+    return RotMatrix, axies, origin
 
 
 
@@ -168,10 +168,10 @@ def correction(workPart, axisorigin, origin, inputList, theSession):
 
     planeSel = ["X", "Y", "Z"]
     showSection(workPart, axisorigin, origin, inputList[6])
-    respons1 = MB.YNBox("Correction", "Is it correct vector of head axies?")
-    if respons1 == 2:
-        MB.msgBox("Wrong axies vector", "Work in progress")
-        sys.exit()
+    # respons1 = MB.YNBox("Correction", "Is it correct vector of head axies?")
+    # if respons1 == 2:
+    #     MB.msgBox("Wrong axies vector", "Work in progress")
+    #     sys.exit()
         
     
     minlist = inputList.copy()
@@ -240,12 +240,12 @@ def correction(workPart, axisorigin, origin, inputList, theSession):
             continue
     
     showSection(workPart, axisorigin, TempOrigin, minAreaOfAll[6])
-    log("minareaofall", f"{minAreaOfAll}{TempOrigin}")
-    log("tempAxies", TempPlaneSel)
+    # log("minareaofall", f"{minAreaOfAll}{TempOrigin}")
+    # log("tempAxies", TempPlaneSel)
     # log("matrix",f"{minlist[6].Xx}, {minlist[6].Xy}, {minlist[6].Xz}, {minlist[6].Yx}, {minlist[6].Yy}, {minlist[6].Yz}, {minlist[6].Zx}, {minlist[6].Zy}, {minlist[6].Zz}")
-    createVector(minAreaOfAll[6],TempOrigin,TempPlaneSel,workPart, theSession)
+    RotMatrix, axies, origin = createVector(minAreaOfAll[6],TempOrigin,TempPlaneSel,workPart, theSession)
 
-    sys.exit()
+    return RotMatrix, axies, origin, axisorigin
 
         
 

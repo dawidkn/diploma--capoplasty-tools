@@ -8,6 +8,7 @@ from read_cog import read_cog
 from additonal_functions.msgBox import msgBox
 import determinate_first_vector as CS
 import head_axies_aproximation as HA
+import define_Head_Point as dHP
 import sys
 import NXOpen.Annotations
 
@@ -31,7 +32,9 @@ for solid_body in display_body:
 
         origin, min_list, axisorigin = CS.basePlanedef(theSession,workPart)
 
-        HA.correction(workPart, axisorigin, origin, min_list, theSession)
+        RotMatrix, axis, originPoint, axisorigin = HA.correction(workPart, axisorigin, origin, min_list, theSession)
+        log("main-Correction", f"{RotMatrix}, {axis}, {origin}")
+        dHP.FindMidPoint(workPart, theSession, RotMatrix, axis, originPoint, axisorigin)
         
         msgBox("This is the END", "Work in progress")
         sys.exit()

@@ -1,29 +1,169 @@
-"0. 2025-03-18 21:31:17 - LogError: Traceback (most recent call last):
-  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\test2.py"", line 44, in <module>
-    associativeLineBuilder1.StartPoint.Value = point5
-TypeError: First parameter is invalid. Expecting NXOpen.TaggedObject type, found NXOpen.Point3d.
+
+"11. 2025-03-20 21:21:31 - test: Value - [2133.1795786153034, <NXOpen.Point3d object at 0x000001F7936EA780>]"
+"12. 2025-03-20 21:21:32 - centroid mid: Value - -35.492352226834214, 22.977832979386864,4.068188828216064"
+"13. 2025-03-20 21:21:32 - centroid last: Value - -55.81324237081286, 34.20796265527808,10.315739387005467"
+"14. 2025-03-20 21:21:32 - centroid first: Value - -23.797783235633485, 12.977580455591582,-0.8917402042797428"
+"15. 2025-03-20 21:23:05 - base vector1: Value - -23.797783235633485, 12.977580455591582,-0.8917402042797428"
+"16. 2025-03-20 21:23:05 - base vector2: Value - -89.34249887521983, 81.52873544088796,41.761134315621206"
+"7. 2025-03-20 22:41:44 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
 "
-"1. 2025-03-18 21:31:34 - point5: Value - [X=100,Y=100,Z=100]"
-"2. 2025-03-18 21:31:34 - LogError: Traceback (most recent call last):
-  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\test2.py"", line 56, in <module>
-    line1 = NXOpen.CurveCollection.CreateLine(point5,point10)
-TypeError: descriptor 'CreateLine' for 'NXOpen.CurveCollection' objects doesn't apply to a 'NXOpen.Point3d' object
+"8. 2025-03-20 22:41:44 - test: Value - [2133.1795786153034, <NXOpen.Point3d object at 0x000001F7A0A2B690>]"
+"9. 2025-03-20 22:41:44 - centroid mid: Value - -35.492352226834214, 22.977832979386864,4.068188828216064"
+"10. 2025-03-20 22:43:49 - Status_main: Value - COG_Pos: [1.4799809760383304e-06, 5.442843878825048e-06, 5.99206700838336e-06]"
+11. 2025-03-20 22:43:50 - Status_main: Value - move_to_point
+"12. 2025-03-20 22:45:24 - min list after correction - dt virst vector: Value - [1443.7559433304912, 'Y', -24, -37, -23, 1, <NXOpen.Matrix3x3 object at 0x000001F79B9DAC30>] and 0.4067366430758002 0.0 0.9135454576426009 0.7911535738303732 0.49999999999999994 -0.352244265553647 -0.4567727288213004 0.8660254037844387 0.20336832153790008"
+"13. 2025-03-20 22:45:24 - newOrigin - dt virst vector: Value - [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+"14. 2025-03-20 22:48:13 - Status_main: Value - COG_Pos: [1.4799809719941483e-06, 5.442843878319527e-06, 5.9920670076250765e-06]"
+15. 2025-03-20 22:48:13 - Status_main: Value - move_to_point
+"16. 2025-03-20 22:49:48 - min list after correction - dt virst vector: Value - [1443.7559433304912, 'Y', -24, -37, -23, 1, <NXOpen.Matrix3x3 object at 0x000001F7A1414E70>] and 0.4067366430758002 0.0 0.9135454576426009 0.7911535738303732 0.49999999999999994 -0.352244265553647 -0.4567727288213004 0.8660254037844387 0.20336832153790008"
+"17. 2025-03-20 22:49:48 - newOrigin - dt virst vector: Value - [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+"18. 2025-03-20 22:51:52 - new min but greater than smallest: Value - [882.0690913024813, 'X', 0, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001F7A1414570>]"
+"19. 2025-03-20 22:52:17 - main-Correction: Value - [Xx=0.36120550682554048,Xy=0.21390056871599483,Xz=0.90762168800766219,Yx=0.6730232788433006,Yy=0.61389482342372959,Yz=-0.41252007455220902,Zx=-0.6454225344484934,Zy=0.7598550470165486,Zz=0.077782128728658376], Z, [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+"20. 2025-03-20 22:52:32 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
 "
-"3. 2025-03-19 19:28:49 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE93E8450>]"
-"4. 2025-03-19 19:29:08 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
-"5. 2025-03-19 19:29:08 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE93E8450>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
-6. 2025-03-19 19:29:08 - tempAxies: Value - Y
-"7. 2025-03-19 22:21:07 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD7CB9210>]"
-"8. 2025-03-19 22:21:32 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
-"9. 2025-03-19 22:21:32 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD7CB9210>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
-"10. 2025-03-19 22:21:32 - tempAxies: Value - ['X', 'Y']"
-"11. 2025-03-19 22:38:49 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE9C6D210>]"
-"12. 2025-03-19 22:39:11 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
-"13. 2025-03-19 22:39:11 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAE9C6D210>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
-"14. 2025-03-19 22:39:11 - tempAxies: Value - ['X', 'Y']"
-15. 2025-03-19 22:41:03 - test: Value - ['Z']
-16. 2025-03-19 22:41:45 - test: Value - Z
-"17. 2025-03-19 22:50:03 - new min but greater than smallest: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD98F5B70>]"
-"18. 2025-03-19 22:50:34 - axies found: Value - 939.1310187926863[X=-5.5439242685155676,Y=34.733000514607099,Z=18.090015392605174]"
-"19. 2025-03-19 22:50:34 - minareaofall: Value - [831.1969874204558, 'Y', 4, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001BAD98F5B70>][X=-7.8570405130554013,Y=29.634013862309477,Z=15.933669326006257]"
-"20. 2025-03-19 22:50:34 - tempAxies: Value - ['X', 'Y']"
+"21. 2025-03-20 22:52:32 - test: Value - [2083.898663198454, <NXOpen.Point3d object at 0x000001F7A0BA6780>]"
+"22. 2025-03-20 22:52:33 - centroid mid: Value - -35.30653234239278, 22.451675867796187,3.990786548402319"
+"23. 2025-03-20 22:58:59 - Status_main: Value - COG_Pos: [1.4799809740162398e-06, 5.44284387882505e-06, 5.992067007372315e-06]"
+24. 2025-03-20 22:58:59 - Status_main: Value - move_to_point
+"25. 2025-03-20 23:01:00 - min list after correction - dt virst vector: Value - [1443.7559433304912, 'Y', -24, -37, -23, 1, <NXOpen.Matrix3x3 object at 0x000001F7A99B28D0>] and 0.4067366430758002 0.0 0.9135454576426009 0.7911535738303732 0.49999999999999994 -0.352244265553647 -0.4567727288213004 0.8660254037844387 0.20336832153790008"
+"26. 2025-03-20 23:01:00 - newOrigin - dt virst vector: Value - [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+"27. 2025-03-20 23:03:37 - new min but greater than smallest: Value - [882.0690913024813, 'X', 0, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001F7A96AFBD0>]"
+"28. 2025-03-20 23:04:05 - main-Correction: Value - [Xx=0.36120550682554048,Xy=0.21390056871599483,Xz=0.90762168800766219,Yx=0.6730232788433006,Yy=0.61389482342372959,Yz=-0.41252007455220902,Zx=-0.6454225344484934,Zy=0.7598550470165486,Zz=0.077782128728658376], Z, [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+"29. 2025-03-20 23:04:24 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+"
+"30. 2025-03-20 23:04:24 - test: Value - [2083.898663198454, <NXOpen.Point3d object at 0x000001F7A8F23330>]"
+"31. 2025-03-20 23:04:24 - centroid mid: Value - -35.30653234239278, 22.451675867796187,3.990786548402319"
+"32. 2025-03-20 23:07:18 - Status_main: Value - COG_Pos: [1.4799809719941483e-06, 5.442843878319527e-06, 5.9920670076250765e-06]"
+33. 2025-03-20 23:07:18 - Status_main: Value - move_to_point
+"34. 2025-03-20 23:07:21 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 43, in create_extrude
+    spLenght = spline.GetLength()
+NXOpen.NXException: User abort
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 53, in create_extrude
+    boundedPlaneBuilder1 = workPart.Features.CreateBoundedPlaneBuilder(NXOpen.Features.BoundedPlane.Null)
+NXOpen.NXException: User abort
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 89, in create_extrude
+    extrudeBuilder1 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+NXOpen.NXException: User abort
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 142, in create_extrude
+    extrudeBuilder1 = workPart.Features.CreateExtrudeBuilder(NXOpen.Features.Feature.Null)
+NXOpen.NXException: User abort
+"
+"35. 2025-03-20 23:07:46 - Status_main: Value - COG_Pos: [1.4799809740162396e-06, 5.442843878319526e-06, 5.992067008130598e-06]"
+36. 2025-03-20 23:07:46 - Status_main: Value - move_to_point
+"37. 2025-03-20 23:09:38 - min list after correction - dt virst vector: Value - [1443.7559433304912, 'Y', -24, -37, -23, 1, <NXOpen.Matrix3x3 object at 0x000001F7A71D1510>] and 0.4067366430758002 0.0 0.9135454576426009 0.7911535738303732 0.49999999999999994 -0.352244265553647 -0.4567727288213004 0.8660254037844387 0.20336832153790008"
+"38. 2025-03-20 23:09:38 - newOrigin - dt virst vector: Value - [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+"39. 2025-03-20 23:12:08 - new min but greater than smallest: Value - [882.0690913024813, 'X', 0, -6, 6, 2, <NXOpen.Matrix3x3 object at 0x000001F7A71A9BD0>]"
+"40. 2025-03-20 23:12:35 - main-Correction: Value - [Xx=0.36120550682554048,Xy=0.21390056871599483,Xz=0.90762168800766219,Yx=0.6730232788433006,Yy=0.61389482342372959,Yz=-0.41252007455220902,Zx=-0.6454225344484934,Zy=0.7598550470165486,Zz=0.077782128728658376], Z, [X=0.39557678691518661,Y=0.24999999999999997,Z=-0.17612213277682351]"
+"41. 2025-03-20 23:12:52 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+"
+"42. 2025-03-20 23:12:52 - test: Value - [2083.898663198454, <NXOpen.Point3d object at 0x000001F7A71D9660>]"
+"43. 2025-03-20 23:12:53 - centroid mid: Value - -35.30653234239278, 22.451675867796187,3.990786548402319"
