@@ -167,3 +167,59 @@ NXOpen.NXException: No section curves or points created.
 "
 "42. 2025-03-20 23:12:52 - test: Value - [2083.898663198454, <NXOpen.Point3d object at 0x000001F7A71D9660>]"
 "43. 2025-03-20 23:12:53 - centroid mid: Value - -35.30653234239278, 22.451675867796187,3.990786548402319"
+"44. 2025-03-24 20:41:18 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+"
+"45. 2025-03-24 20:41:18 - test: Value - [2133.1795786153034, <NXOpen.Point3d object at 0x000002A522818FC0>]"
+"46. 2025-03-24 20:41:19 - centroid mid: Value - -35.492352226834214, 22.977832979386864,4.068188828216064"
+"47. 2025-03-24 20:41:19 - start_InsertPoint: Value - (-59.12313515186192, 38.02730223717464, 11.558153675204407)"
+"48. 2025-03-29 17:58:37 - LogError: Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 51, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 85, in create_extrude
+    nXObject1 = boundedPlaneBuilder1.Commit()
+NXOpen.NXException: No profile selected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 140, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\dawid\Desktop\praca magisterska\praca magisterska - program\axis_aproximation-program\measure_area.py"", line 199, in create_extrude
+    feature1 = extrudeBuilder1.CommitFeature()
+NXOpen.NXException: No section curves or points created.
+"
+49. 2025-03-29 17:58:37 - test: Value - EMPTY

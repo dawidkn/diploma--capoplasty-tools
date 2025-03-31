@@ -54,7 +54,7 @@ def distance_3d(point1, point2):
     x2, y2, z2 = point2.X, point2.Y, point2.Z
     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
 
-def createHeadAxiesVector(workPart, baseVector1, baseVector2, centroid1):
+def createHeadAxiesVector(workPart, baseVector1, baseVector2, centroid1, dist2):
     def calculate_direction_vector(p1, p2):
         return (p2[0] - p1[0], p2[1] - p1[1], p2[2] - p1[2])
 
@@ -67,12 +67,12 @@ def createHeadAxiesVector(workPart, baseVector1, baseVector2, centroid1):
     p1 = (baseVector1.X, baseVector1.Y, baseVector1.Z)
     p2 = (baseVector2.X, baseVector2.Y, baseVector2.Z)
     p_new = (centroid1.X, centroid1.Y, centroid1.Z)
-    distance = 100      
 
 
     direction_vector = calculate_direction_vector(p1, p2)
-    offset_point = find_offset_point(p_new, direction_vector, distance)
-
+    offset_point = find_offset_point(p_new, direction_vector, 100)
+    start_InsertPoint = find_offset_point(p_new, direction_vector,dist2+5)
+    log("start_InsertPoint", start_InsertPoint)
     p1 = NXOpen.Point3d(p_new[0],p_new[1],p_new[2])
     p2 = NXOpen.Point3d(offset_point[0],offset_point[1],offset_point[2])
 
@@ -106,8 +106,8 @@ def FindMidPoint(workPart, theSession, RotMatrix, axis, originPoint, axisorigin)
     MA.create_extrude(workPart)
     centroid1 = MA.centroid(workPart,theSession)
     MA.reamove_extrude_and_splines(theSession, workPart)
-    log("centroid mid", f"{centroid1.X}, {centroid1.Y},{centroid1.Z}")
-    createHeadAxiesVector(workPart, baseVector1, baseVector2, centroid1)
+    # log("centroid mid", f"{centroid1.X}, {centroid1.Y},{centroid1.Z}")
+    createHeadAxiesVector(workPart, baseVector1, baseVector2, centroid1, dist2)
     MB.msgBox("FNALY!!", "!!!WE DID IT!!")
 
 
